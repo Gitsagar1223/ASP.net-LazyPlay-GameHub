@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FinalProjectASP.Models.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="width: 100%; height: 500px; position: relative; overflow: hidden; ">
+    <video src="~/lib/bootstrap/pexels-artem-podrez-7774360 (Original).mp4" autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #000; text-align: center;">
+        <h1 style="color:ghostwhite">LazzyPlay</h1>
+        <p>Let's Play Together</p>
+    </div>
+</div>
+
+<div class="row pb-3">
+    @foreach (var item in Model)
+    {
+        
+        <div class="col-lg-4 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 p-1 shadow border-top border-5 rounded">
+                        <img src="@Html.DisplayFor(modelItem => item.Image)" class="card-img-top rounded" height="350" width="300" />
+                        <div class="pl-1">
+                            <p class="card-title h5 text-dark opacity-75 text-uppercase text-center" >@Html.DisplayFor(modelItem => item.ProductName)</p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="text-dark text-opacity-100 text-center fw-bold">
+                                Price :₹
+                                <span>
+
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </span>
+                            </p>
+                        </div>
+                        <div class="pl-1">
+                            @Html.DisplayFor(modelItem => item.Descritpion)
+                        </div>
+                        <br />
+                        <div class="pl-1">
+                            @Html.DisplayFor(modelItem => item.Description2)
+                        </div><br />
+                    </div>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary bg-gradient border-0 form-control">View Details</a>
+                    
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

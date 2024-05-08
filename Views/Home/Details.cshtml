@@ -1,0 +1,28 @@
+﻿@model FinalProjectASP.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <div class="card" style="width: 18rem; justify-content: center;">
+        <img class="card-img-top"  src="@Html.DisplayFor(model => model.Image)" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(model => model.ProductName)</h5>
+            <p class="card-text">
+                Price : @Html.DisplayFor(model => model.Price) <br />
+                Description : @Html.DisplayFor(model => model.Descritpion)<br />
+            </p>
+        </div>
+    </div>
+    
+<div>
+    <a asp-action="Buy" class="btn btn-primary bg-gradient border-0 form-control" style="width: 100px;">Buy</a><br />
+    <br />
+
+    <a asp-action="Index" class="btn btn-dark">Back to List</a>
+</div>
